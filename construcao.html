@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="js/codigosjs.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Estamos em construção - Tecnowoman</title>
+
+</head>
+<body>
+    <header>
+      <nav class="navBar">
+        <span id="navbar-toggle">
+          <i class="fa fa-bars"></i>
+        </span>
+        <a href="index.html"> <img src="imagens/logo1empng.png" alt="Logo Tecnowoman" id="logo"></a>
+        <div class="search-box"><!--PESQUISA-->
+          <input  type="text" id="search-txt" onkeyup="pesquisar()" placeholder="Pesquisar">
+          <a class="search-btn" href="#">
+            <i class="fa fa-search"></i>
+          </a>
+          <ul id="perfisLista">
+         <li><a href="ada.html">Ada Lovelace</a></li>
+           <li><a href="marie.html">Marie Curie</a></li>
+           <li><a href="mae.html">Mae C. Jamison</a></li>
+
+
+       </ul>
+        </div>
+
+          <script>
+                function pesquisar(){
+                    var input, filter, ul, li, a, i;
+                    input = document.getElementById("search-txt");
+                    filter = input.value.toUpperCase();
+                    console.log(filter);
+                    ul = document.getElementById("perfisLista");
+                    li = ul.getElementsByTagName("li");
+                    console.log(filter.length);
+                    for (i = 0; i < li.length; i++){
+                        if (filter.length != 0) {
+                            a = li[i].getElementsByTagName("a")[0];
+                            if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
+                                li[i].style.display = "block";
+                            }
+                            else{
+                                li[i].style.display = "none";
+                            }
+                        }
+                        else {
+                            li[i].style.display = "none";
+                        }
+                    }
+                }
+
+            </script>
+            <ul id="itens">
+              <li><a href="index.html" class="link_nav">Feed</a></li>
+              <li><a href="construcao.html" class="link_nav">Notificações</a></li>
+              <li><a href="construcao.html" class="link_nav">Eventos</a></li>
+              <li><a href="construcao.html" class="link_nav">Ajuda</a></li>
+              <li><a href="login.html" class="link_nav">Sair</a></li>
+            </ul>
+    </nav>
+    <script>
+    let Itens=document.getElementById('itens');
+    let navbarToggle=document.getElementById('navbar-toggle');
+
+    navbarToggle.addEventListener('click', function(){
+
+      if(this.classList.contains('active')){
+        Itens.style.display="none";
+        this.classList.remove('active');
+      }
+      else{
+        Itens.style.display="flex";
+        this.classList.add('active');
+      }
+    });
+    </script>
+      </header>
+    <h2>Estamos em construção. Seguiremos em construção porque o semestre acabou. Tchau!</h2>
+    <footer>Esta e todas as outras páginas foram feitas com lágrimas de Laryssa Azevedo e Rayanne Souza.
+      Agradecimentos ao Léo Ferraz, sem ele absolutamente nada disso seria possível.</footer>
+    </body>
+</html>

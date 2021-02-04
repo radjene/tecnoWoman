@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="js/codigosjs.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <title>Bem-vinda ao Tecnowoman!</title>
+   </head>
+   <body>
+      <header>
+         <nav class="navBar">
+            <span id="navbar-toggle">
+            <i class="fa fa-bars"></i>
+            </span>
+            <a href="index.html"> <img src="imagens/logo1empng.png" alt="Logo Tecnowoman" id="logo"></a>
+            <div class="search-box">
+               <!--PESQUISA-->
+               <input  type="text" id="search-txt" onkeyup="pesquisar()" placeholder="Pesquisar">
+               <a class="search-btn" href="#">
+               <i class="fa fa-search"></i>
+               </a>
+               <ul id="perfisLista">
+                  <li><a href="ada.html">Ada Lovelace</a></li>
+                  <li><a href="marie.html">Marie Curie</a></li>
+                  <li><a href="mae.html">Mae C. Jamison</a></li>
+               </ul>
+            </div>
+            <script>
+               function pesquisar(){
+                   var input, filter, ul, li, a, i;
+                   input = document.getElementById("search-txt");
+                   filter = input.value.toUpperCase();
+                   console.log(filter);
+                   ul = document.getElementById("perfisLista");
+                   li = ul.getElementsByTagName("li");
+                   console.log(filter.length);
+                   for (i = 0; i < li.length; i++){
+                       if (filter.length != 0) {
+                           a = li[i].getElementsByTagName("a")[0];
+                           if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
+                               li[i].style.display = "block";
+                           }
+                           else{
+                               li[i].style.display = "none";
+                           }
+                       }
+                       else {
+                           li[i].style.display = "none";
+                       }
+                   }
+               }
+               
+            </script>
+            <ul id="itens">
+               <li><a href="index.html" class="link_nav">Feed</a></li>
+               <li><a href="construcao.html" class="link_nav">Notificações</a></li>
+               <li><a href="construcao.html" class="link_nav">Eventos</a></li>
+               <li><a href="construcao.html" class="link_nav">Ajuda</a></li>
+               <li><a href="login.html" class="link_nav">Sair</a></li>
+            </ul>
+         </nav>
+         <script>
+            let Itens=document.getElementById('itens');
+            let navbarToggle=document.getElementById('navbar-toggle');
+            
+            navbarToggle.addEventListener('click', function(){
+            
+              if(this.classList.contains('active')){
+                Itens.style.display="none";
+                this.classList.remove('active');
+              }
+              else{
+                Itens.style.display="flex";
+                this.classList.add('active');
+              }
+            });
+         </script>
+      </header>
+      <div class="pagina">
+         <main>
+            <ul class="lista-feed">
+               <li class="feed-item">
+                  <a href="">
+                     <p>Não estou feliz na minha área, e agora?</p>
+                  </a>
+                  <i class="fa fa-female"></i><span class="categoria">estudante</span><span class="respostas">17 respostas</span>
+               </li>
+               <li class="feed-item">
+                  <a href="">
+                     <p>Vamos criar um evento de UX?</p>
+                  </a>
+                  <i class="fa fa-female"></i><span class="categoria">professora</span><span class="respostas">112 respostas</span>
+               </li>
+               <li class="feed-item">
+                  <a href="">
+                     <p><span class="categoria">lcazev postou em Rainhas do UX</span>:</p>
+                     <p>Chama a Dua Lipa! Novas regras do grupo!</p>
+                  </a>
+                  <i class="fa fa-female"></i><span class="categoria">estudante</span><span class="respostas">20 respostas</span>
+               </li>
+               <li class="feed-item">
+                  <a href="">
+                     <p>Alguém faz BSI na UNIRIO?</p>
+                  </a>
+                  <i class="fa fa-female"></i><span class="categoria">estudante</span><span class="respostas">3 respostas</span>
+               </li>
+               <li class="feed-item">
+                  <a href="">
+                     <p>Oportunidade de estágio (Banco de dados!)</p>
+                  </a>
+                  <i class="fa fa-female"></i><span class="categoria">admin</span><span class="respostas">0 respostas</span>
+               </li>
+               <li class="feed-item">
+                  <a href="">
+                     <p><span class="categoria">rayanneadjene postou em Grupo das lindas</span>:</p>
+                     <p>Quem conhece a professora Morganna Diniz?</p>
+                  </a>
+                  <i class="fa fa-female"></i><span class="categoria">estudante</span><span class="respostas">5 respostas</span>
+               </li>
+            </ul>
+         </main>
+         <aside class="perfil">
+            <img src="imagens/perfil.jpg" alt="Imagem de Frida Kahlo">
+            <div class="descricao-perfil">
+               <p>Frida, 35, artista</p>
+               <p><a href="frida.html">Exibir Perfil</a></p>
+               <p><a href="construcao.html">Editar informações</a>
+               <p><a href="construcao.html">Contatos</a></p>
+               <p><a href="construcao.html">Mensagens</a></p>
+            </div>
+            <!--Fim descricao-perfil-->
+         </aside>
+         <!--Fim perfil-->
+         <aside class="criar">
+            <div class="criar-container">
+               <p>Você pode criar discussões sobre diversos temas da área de TI e compartilhar com suas amigas! </p>
+               <a href="discussao.html" class="botao1">Criar Discussão</a>
+            </div>
+            <div class="criar-container">
+               <p>Crie grupos sobre seus assuntos de interesse</p>
+               <a href="" class="botao1">Criar Grupo</a>
+            </div>
+            <div class="criar-container">
+               <p>Anuncie conosco! Nossa plataforma cresce a cada dia</p>
+               <a href="" class="botao1">Anuncie</a>
+            </div>
+         </aside>
+         <div class="nav_bottom">
+            <div class="icone_holder">
+               <a href="discussao.html" class="botao1">Criar Discussão</a>
+               <a class="icone" href="construcao.html"><i class="fa fa-calendar"></i></a>
+               <a class="icone" href="construcao.html"><i class="fa fa-envelope"></i></a>
+            </div>
+            <!-- Fim icone_holder-->
+         </div>
+         <!-- Fim nav_bottom-->
+      </div>
+      <!--Fim Página-->
+   </body>
+</html>
